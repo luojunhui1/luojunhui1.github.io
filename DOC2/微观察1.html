@@ -197,21 +197,24 @@
 <div class="comments">
     <h3 class="title is-4">评论</h3>
     
-<div id="comment-container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script>
-	var gitment = new Gitment({
-		id: 'DOC2/微观察1.html',
-		owner: 'luojunhui1',
-		repo: 'luojunhui1.github.io',
-		oauth: {
-			client_id: '9a0c86a290f27465ab0f',
-			client_secret: '7133ddd0c7914b4f787e1547d595f50eac057e59',
-		},
-	})
-	gitment.render('comment-container')
+    new Valine({
+        el: '#valine-thread',
+        appId: '9q149gbUxyvBrLkvSglgtnS3-gzGzoHsz',
+        appKey: 'w05H4dRopMCVPa2DXkvbbjNN',
+        notify: false,
+        verify: false,
+        avatar: '',
+        placeholder: 'xxxxxxxx',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: ''
+    })
 </script>
+
 
 </div>
 
