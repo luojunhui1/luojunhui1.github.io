@@ -165,26 +165,22 @@
 <div class="comments">
     <h3 class="title is-4">评论</h3>
     
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-    var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/index/';
-        this.page.identifier = 'index/';
-        
-        this.language = 'zh';
-        
-    };
-    (function() {
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'China' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+	var gitment = new Gitment({
+		id: 'index/',
+		owner: 'luojunhui1',
+		repo: 'https://github.com/luojunhui1/luojunhui1.github.io',
+		oauth: {
+			client_id: 'd17647e81f1916cd0138',
+			client_secret: 'c78edd7bc357ccf4c6851fee90e77933554ef60e',
+		},
+	})
+	gitment.render('comment-container')
 </script>
 
-<div id="disqus_thread">
-    
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
-</div>
 </div>
 
     </div>
