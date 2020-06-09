@@ -16,12 +16,12 @@
 
 
 
-    <meta name="description" content="&amp;#x4E8B;&amp;#x52A1;&amp;#x5E76;&amp;#x53D1;&amp;#x7684;&amp;#x53EF;&amp;#x4E32;&amp;#x884C;&amp;#x5316; &amp;#x4E8B;&amp;#x52A1;&amp;#x7684;&amp;#x4E32;&amp;#x884C;&amp;#x6267;&amp;#x884C;&amp;#xFF08;serial execution&amp;#xFF09;:DBMS&amp;#x6309;&amp;#x987A;&amp;#x5E8F;&amp;#x4E00">
+    <meta name="description" content="&amp;#x4E8B;&amp;#x52A1;&amp;#x5E76;&amp;#x53D1;&amp;#x7684;&amp;#x53EF;&amp;#x4E32;&amp;#x884C;&amp;#x5316; &amp;#x4E8B;&amp;#x52A1;&amp;#x7684;&amp;#x4E32;&amp;#x884C;&amp;#x6267;&amp;#x884C;&amp;#xFF08;serial execution&amp;#xFF09;:DBMS&amp;#x6309;&amp;#x987A;&amp;#x5E8F;&amp;#x4E00;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库_并发">
 <meta property="og:url" content="http://yoursite.com/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%B9%B6%E5%8F%91/index.html">
 <meta property="og:site_name" content="罗俊辉的个人博客">
-<meta property="og:description" content="&amp;#x4E8B;&amp;#x52A1;&amp;#x5E76;&amp;#x53D1;&amp;#x7684;&amp;#x53EF;&amp;#x4E32;&amp;#x884C;&amp;#x5316; &amp;#x4E8B;&amp;#x52A1;&amp;#x7684;&amp;#x4E32;&amp;#x884C;&amp;#x6267;&amp;#x884C;&amp;#xFF08;serial execution&amp;#xFF09;:DBMS&amp;#x6309;&amp;#x987A;&amp;#x5E8F;&amp;#x4E00">
+<meta property="og:description" content="&amp;#x4E8B;&amp;#x52A1;&amp;#x5E76;&amp;#x53D1;&amp;#x7684;&amp;#x53EF;&amp;#x4E32;&amp;#x884C;&amp;#x5316; &amp;#x4E8B;&amp;#x52A1;&amp;#x7684;&amp;#x4E32;&amp;#x884C;&amp;#x6267;&amp;#x884C;&amp;#xFF08;serial execution&amp;#xFF09;:DBMS&amp;#x6309;&amp;#x987A;&amp;#x5E8F;&amp;#x4E00;&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/3.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608000146.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608010817.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/Snipaste_2020-06-08_01-16-40.png">
 <meta property="article:published_time" content="2020-06-07T17:37:35.000Z">
-<meta property="article:modified_time" content="2020-06-08T03:30:05.385Z">
+<meta property="article:modified_time" content="2020-06-08T10:25:39.965Z">
 <meta property="article:author" content="Junhui Luo">
 <meta property="article:tag" content="数据库">
 <meta property="article:tag" content="学习">
@@ -145,6 +145,18 @@
                     
                     <a class="navbar-item" href="#">3&nbsp;&nbsp;<b>基于锁的并发控制</b></a>
                     
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#">4&nbsp;&nbsp;<b>死锁检测与预防</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#">5&nbsp;&nbsp;<b>附图</b></a>
+                    
                 </div>
             </div>
             
@@ -182,15 +194,13 @@
         <span class="column is-narrow">
             
             
-            12 分钟 读完 (约 1804 字)
+            14 分钟 读完 (约 2083 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/3.jpg" alt></p>
-<!--toc--->
-
 <h3><span id="&#x4E8B;&#x52A1;&#x5E76;&#x53D1;&#x7684;&#x53EF;&#x4E32;&#x884C;&#x5316;">&#x4E8B;&#x52A1;&#x5E76;&#x53D1;&#x7684;&#x53EF;&#x4E32;&#x884C;&#x5316;</span></h3><ul>
 <li>&#x4E8B;&#x52A1;&#x7684;&#x4E32;&#x884C;&#x6267;&#x884C;&#xFF08;serial execution&#xFF09;:DBMS&#x6309;&#x987A;&#x5E8F;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#xFF0C;&#x5404;&#x4E2A;&#x4E8B;&#x52A1;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4EA4;&#x9519;&#x3002;</li>
 <li>&#x4E8B;&#x52A1;&#x7684;&#x5E76;&#x884C;&#x6267;&#x884C;&#xFF08;concurrent execution&#xFF09;:DBMS&#x540C;&#x65F6;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x4E8B;&#x52A1;&#xFF0C;DBMS&#x5BF9;&#x5404;&#x4E8B;&#x52A1;&#x7684;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;&#xFF0C;&#x53E6;&#x5176;&#x4EA4;&#x9519;&#x6267;&#x884C;&#x3002;</li>
@@ -231,11 +241,14 @@
 <td>&#x8BFB;&#x5199;&#x51B2;&#x7A81;</td>
 </tr>
 </tbody></table>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608000146.png" alt></p>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608000146.png" style="zoom:50%;">
+
 <p>&#x200B;                                                          &#x4E22;&#x5931;&#x66F4;&#x65B0;&#x56FE;&#x4F8B;</p>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608000352.png" alt></p>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608000352.png" style="zoom:50%;">
+
 <p>&#x200B;                                                         &#x8BFB;&#x810F;&#x6570;&#x636E;&#x56FE;&#x4F8B;</p>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608001349.png" alt></p>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608001349.png" style="zoom:50%;">
+
 <p>&#x200B;                                                      &#x8BFB;&#x503C;&#x4E0D;&#x53EF;&#x590D;&#x73B0;&#x56FE;&#x4F8B;</p>
 <p>&#x7531;&#x4EE5;&#x4E0A;&#x4E09;&#x4E2A;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x95EE;&#x9898;&#x5F97;&#x51FA;&#x7ED3;&#x8BBA;&#xFF1A;</p>
 <p><strong>&#x628A;&#x4E0D;&#x540C;&#x4E8B;&#x7269;&#x4E2D;&#x5BF9;&#x540C;&#x4E00;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;WW\RW\WR&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x4EA4;&#x9519;&#x65F6;&#x90FD;&#x4F1A;&#x9020;&#x6210;&#x51B2;&#x7A81;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x5B89;&#x6392;&#x4E8B;&#x52A1;&#x7684;&#x4EA4;&#x9519;&#xFF08;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF09;&#x65F6;&#xFF0C;&#x5E94;&#x907F;&#x514D;&#x5C06;&#x5176;&#x653E;&#x5728;&#x4E00;&#x8D77;&#x3002;</strong></p>
@@ -259,7 +272,7 @@
 <li>$$W_{T2}(x)$$&#x4E0E;$$R_{T1}(x)$$&#x548C;$$W_{T3}(x)$$&#x5206;&#x522B;&#x6709;&#x51B2;&#x7A81;&#xFF0C;&#x753B;&#x4E00;&#x6761;&#x7531;&#x70B9;T3&#x6307;&#x5411;T2&#x7684;&#x6709;&#x5411;&#x8FB9;&#x548C;T1&#x6307;&#x5411;T2&#x7684;&#x6709;&#x5411;&#x8FB9;&#x3002;</li>
 </ul>
 <p>&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#xFF0C;&#x6700;&#x7EC8;&#x5F97;&#x5230;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/Snipaste_2020-06-08_00-39-03.png" alt></p>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/Snipaste_2020-06-08_00-39-03.png" style="zoom:50%;">
 </blockquote>
 <p><strong>&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x4E32;&#x884C;&#x5316;</strong>&#xFF1A;&#x82E5;&#x524D;&#x8D8B;&#x56FE;&#x6709;&#x56DE;&#x8DEF;&#xFF0C;&#x5219;&#x4E0D;&#x53EF;&#x4E32;&#x884C;&#x5316;&#xFF1B;&#x82E5;&#x6CA1;&#x6709;&#x56DE;&#x8DEF;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4E32;&#x884C;&#x5316;&#x3002;</p>
 <p><strong>&#x5BFB;&#x627E;&#x7B49;&#x4EF7;&#x4E32;&#x884C;&#x8C03;&#x5EA6;&#x65B9;&#x6CD5;</strong>&#xFF1A;&#x5148;&#x6267;&#x884C;&#x5165;&#x5EA6;&#x4E3A;0&#x7684;&#x8282;&#x70B9;&#xFF08;&#x4E8B;&#x52A1;&#xFF09;&#xFF0C;&#x518D;&#x5C06;&#x8BE5;&#x8282;&#x70B9;&#xFF08;&#x4E8B;&#x52A1;&#xFF09;&#x53CA;&#x5176;&#x76F8;&#x8FDE;&#x8FB9;&#x4ECE;&#x524D;&#x8D8B;&#x56FE;&#x4E2D;&#x5220;&#x9664;&#xFF0C;&#x518D;&#x5BFB;&#x627E;&#x5165;&#x8BFB;&#x4E3A;0&#x7684;&#x8282;&#x70B9;&#xFF08;&#x4E8B;&#x52A1;&#xFF09;&#x6267;&#x884C;&#xFF0C;&#x53CD;&#x590D;&#x5982;&#x6B64;&#xFF0C;&#x76F4;&#x5230;&#x4E8B;&#x52A1;&#x5168;&#x90E8;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x3002;</p>
@@ -336,13 +349,48 @@
 </tbody></table>
 <ul>
 <li>&#x52A0;&#x9501;&#x65F6;&#xFF0C;&#x5BF9;&#x7956;&#x5148;&#x6309;&#x81EA;&#x4E0A;&#x800C;&#x4E0B;&#x7684;&#x987A;&#x5E8F;&#x52A0;&#x610F;&#x5411;&#x9501;&#x3002;</li>
-<li>&#x89E3;&#x9501;&#x65F6;&#xFF0C;&#x6309;&#x81EA;&#x4E0B;&#x800C;&#x4E0A;&#x7684;&#x6B21;&#x5E8F;&#x89E3;&#x9501;&#x3002;    </li>
+<li>&#x89E3;&#x9501;&#x65F6;&#xFF0C;&#x6309;&#x81EA;&#x4E0B;&#x800C;&#x4E0A;&#x7684;&#x6B21;&#x5E8F;&#x89E3;&#x9501;&#x3002;</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608005424.png" alt></p>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/Snipaste_2020-06-08_00-59-39.png" alt></p>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608010817.png" alt></p>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/Snipaste_2020-06-08_01-16-40.png" alt></p>
-</body></html>
+<h3><span id="&#x6B7B;&#x9501;&#x68C0;&#x6D4B;&#x4E0E;&#x9884;&#x9632;">&#x6B7B;&#x9501;&#x68C0;&#x6D4B;&#x4E0E;&#x9884;&#x9632;</span></h3><p><strong>&#x6B7B;&#x9501;</strong>&#xFF1A;&#x5F53;&#x4E8B;&#x52A1;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x7B49;&#x5F85;&#x65F6;&#xFF0C;&#x82E5;&#x4E0D;&#x52A0;&#x4EE5;&#x5E72;&#x9884;&#xFF0C;&#x5219;&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x4E0B;&#x53BB;&#xFF0C;&#x5F62;&#x6210;&#x6B7B;&#x9501;&#x3002;</p>
+<p><strong>&#x5BF9;&#x4ED8;&#x6B7B;&#x9501;&#x7684;&#x4E24;&#x4E2A;&#x529E;&#x6CD5;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x9632;&#x6B62;&#x6B7B;&#x9501;</li>
+<li>&#x68C0;&#x6D4B;&#x6B7B;&#x9501;&#xFF0C;&#x53D1;&#x73B0;&#x6B7B;&#x9501;&#x540E;&#x5904;&#x7406;&#x6B7B;&#x9501;&#x3002;</li>
+</ul>
+<p><strong>&#x9884;&#x9632;&#x6B7B;&#x9501;&#x7684;&#x65B9;&#x6CD5;</strong>&#xFF1A;</p>
+<p>&#x200B;    &#x7ED9;&#x6BCF;&#x4E2A;&#x4E8B;&#x52A1;&#x4EE5;&#x65F6;&#x95F4;&#x6233;&#x5148;&#x540E;&#x4E3A;&#x51C6;&#x8BBE;&#x7ACB;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x65F6;&#x95F4;&#x6233;&#x8D8A;&#x524D;&#xFF0C;&#x4E8B;&#x52A1;&#x4F18;&#x5148;&#x7EA7;&#x8D8A;&#x9AD8;&#x3002;&#x82E5;&#x6709;A&#x4E8B;&#x52A1;&#x6301;&#x6709;&#x8D44;&#x6E90;Z&#x7684;&#x9501;&#xFF0C;&#x800C;B&#x4E8B;&#x52A1;&#x7533;&#x8BF7;&#x5BF9;Z&#x7684;&#x9501;&#x3002;&#x82E5;A&#x4F18;&#x5148;&#x7EA7;&#x66F4;&#x9AD8;&#xFF0C;&#x5219;B&#x7B49;&#x5F85;&#xFF1B;&#x82E5;B&#x4F18;&#x5148;&#x7EA7;&#x66F4;&#x9AD8;&#xFF0C;&#x5219;A&#x56DE;&#x6EDA;&#xFF0C;&#x518D;&#x91CD;&#x542F;&#x4E8B;&#x52A1;A&#x5E76;&#x7EE7;&#x627F;A&#x56DE;&#x6EDA;&#x524D;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x3002;</p>
+<p><strong>&#x68C0;&#x6D4B;&#x6B7B;&#x9501;&#x7684;&#x65B9;&#x6CD5;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x8D85;&#x65F6;&#x6CD5;</li>
+<li>&#x7B49;&#x5F85;&#x56FE;&#x6CD5;</li>
+</ul>
+<p><strong>&#x6B7B;&#x9501;&#x5904;&#x7406;&#x7684;&#x65B9;&#x6CD5;</strong>&#xFF1A;</p>
+<ul>
+<li><p>&#x5904;&#x7406;&#x601D;&#x60F3;&#xFF1A;&#x6740;&#x6B7B;&#x4E8B;&#x52A1;&#xFF0C;&#x6253;&#x7834;&#x5FAA;&#x73AF;&#x7B49;&#x5F85;</p>
+</li>
+<li><p>&#x9009;&#x62E9;&#x727A;&#x7272;&#x4E8B;&#x52A1;&#x7684;&#x6807;&#x51C6;&#xFF1A;</p>
+<ul>
+<li>&#x9009;&#x62E9;&#x6700;&#x8FDF;&#x4EA4;&#x4ED8;&#x7684;</li>
+<li>&#x9009;&#x62E9;&#x83B7;&#x5F97;&#x9501;&#x6700;&#x5C11;&#x7684;</li>
+<li>&#x9009;&#x62E9;&#x56DE;&#x9000;&#x4EE3;&#x4EF7;&#x6700;&#x5C0F;&#x7684;</li>
+</ul>
+<p>&#x4E0D;&#x540C;DBMS&#x7684;&#x6807;&#x51C6;&#x53EF;&#x80FD;&#x4E0D;&#x4E00;&#x6837;&#x3002;</p>
+</li>
+<li><p>&#x88AB;&#x6740;&#x6B7B;&#x4E8B;&#x52A1;&#x7684;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>&#x544A;&#x77E5;&#x7528;&#x6237;&#x4E8B;&#x52A1;&#x56E0;&#x6B7B;&#x9501;&#x88AB;&#x6740;&#x6B7B;&#xFF0C;&#x7A0D;&#x540E;&#x518D;&#x6B21;&#x5411;&#x7CFB;&#x7EDF;&#x4EA4;&#x4ED8;&#x8BE5;&#x4E8B;&#x52A1;</li>
+<li>&#x7531;DBMS&#x91CD;&#x542F;&#x8BE5;&#x4E8B;&#x52A1;&#x3002;</li>
+</ul>
+<p>&#x4E0D;&#x7BA1;&#x54EA;&#x79CD;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#xFF0C;&#x88AB;&#x6740;&#x6B7B;&#x7684;&#x4E8B;&#x52A1;&#x90FD;&#x8981;&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x624D;&#x80FD;&#x88AB;&#x91CD;&#x65B0;&#x6267;&#x884C;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x4F1A;&#x518D;&#x6B21;&#x5F15;&#x8D77;&#x6B7B;&#x9501;&#x3002;</p>
+</li>
+</ul>
+<h3><span id="&#x9644;&#x56FE;">&#x9644;&#x56FE;</span></h3><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608005424.png" style="zoom:50%;">
+
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/Snipaste_2020-06-08_00-59-39.png" style="zoom:50%;">
+
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200608010817.png" style="zoom:50%;">
+
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/Snipaste_2020-06-08_01-16-40.png" style="zoom:50%;"></body></html>
     
     </div>
     
@@ -422,6 +470,13 @@
                 <a class="column is-narrow has-text-black" title="西南交通大学官网" href="http://jwc.swjtu.edu.cn/index.html" target="_blank" rel="noopener">
                     
                     西南交通大学官网
+                    
+                </a>
+                
+                    
+                <a class="column is-narrow has-text-black" title="Taunt" href="http://taunt.com.cn/" target="_blank" rel="noopener">
+                    
+                    Taunt
                     
                 </a>
                 
