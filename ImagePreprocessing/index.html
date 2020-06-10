@@ -16,12 +16,12 @@
 
 
 
-    <meta name="description" content="OpenCV&amp;#x56FE;&amp;#x50CF;&amp;#x9884;&amp;#x5904;&amp;#x7406;&amp;#x566A;&amp;#x58F0;&amp;#x5904;&amp;#x7406;&amp;#x4E00;&amp;#x822C;&amp;#x800C;&amp;#x8A00;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5C06;&amp;#x566A;&amp;#x58F0;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;">
+    <meta name="description" content="&amp;#x566A;&amp;#x58F0;&amp;#x5904;&amp;#x7406;&amp;#x4E00;&amp;#x822C;&amp;#x800C;&amp;#x8A00;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5C06;&amp;#x566A;&amp;#x58F0;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x7C7B;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Image Preprocessing">
 <meta property="og:url" content="http://yoursite.com/ImagePreprocessing/index.html">
 <meta property="og:site_name" content="罗俊辉的个人博客">
-<meta property="og:description" content="OpenCV&amp;#x56FE;&amp;#x50CF;&amp;#x9884;&amp;#x5904;&amp;#x7406;&amp;#x566A;&amp;#x58F0;&amp;#x5904;&amp;#x7406;&amp;#x4E00;&amp;#x822C;&amp;#x800C;&amp;#x8A00;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5C06;&amp;#x566A;&amp;#x58F0;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;">
+<meta property="og:description" content="&amp;#x566A;&amp;#x58F0;&amp;#x5904;&amp;#x7406;&amp;#x4E00;&amp;#x822C;&amp;#x800C;&amp;#x8A00;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5C06;&amp;#x566A;&amp;#x58F0;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x7C7B;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/4.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/1.png">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200609085811.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/Snipaste_2020-06-09_12-58-25.png">
 <meta property="article:published_time" content="2020-06-06T03:53:49.000Z">
-<meta property="article:modified_time" content="2020-06-09T08:16:36.910Z">
+<meta property="article:modified_time" content="2020-06-10T02:59:44.484Z">
 <meta property="article:author" content="Junhui Luo">
 <meta property="article:tag" content="CV">
 <meta property="article:tag" content="Image">
@@ -127,23 +127,25 @@
                     
                     
                     
-                    <a class="navbar-item" href="#">1&nbsp;&nbsp;<b>OpenCV图像预处理</b></a>
+                    <a class="navbar-item" href="#">1&nbsp;&nbsp;<b>噪声处理</b></a>
                     
                     
-                    
-                    <a class="navbar-item" href="#">1.1&nbsp;&nbsp;噪声处理</a>
-                    
+                    <hr class="navbar-divider">
                     
                     
-                    <a class="navbar-item" href="#">1.2&nbsp;&nbsp;图像增强</a>
+                    <a class="navbar-item" href="#">2&nbsp;&nbsp;<b>图像增强</b></a>
                     
                     
-                    
-                    <a class="navbar-item" href="#">1.3&nbsp;&nbsp;图像分割</a>
-                    
+                    <hr class="navbar-divider">
                     
                     
-                    <a class="navbar-item" href="#">1.4&nbsp;&nbsp;图像增广</a>
+                    <a class="navbar-item" href="#">3&nbsp;&nbsp;<b>图像分割</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#">4&nbsp;&nbsp;<b>图像增广</b></a>
                     
                 </div>
             </div>
@@ -182,14 +184,14 @@
         <span class="column is-narrow">
             
             
-            12 分钟 读完 (约 1737 字)
+            12 分钟 读完 (约 1746 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/4.jpg" alt></p>
-<h2><span id="opencv&#x56FE;&#x50CF;&#x9884;&#x5904;&#x7406;">OpenCV&#x56FE;&#x50CF;&#x9884;&#x5904;&#x7406;</span></h2><h3><span id="&#x566A;&#x58F0;&#x5904;&#x7406;">&#x566A;&#x58F0;&#x5904;&#x7406;</span></h3><p>&#x4E00;&#x822C;&#x800C;&#x8A00;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x566A;&#x58F0;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x51E0;&#x7C7B;</p>
+<h3><span id="&#x566A;&#x58F0;&#x5904;&#x7406;">&#x566A;&#x58F0;&#x5904;&#x7406;</span></h3><p>&#x4E00;&#x822C;&#x800C;&#x8A00;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x566A;&#x58F0;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x51E0;&#x7C7B;</p>
 <a id="more"></a>
 
 <table>
@@ -310,7 +312,7 @@
 </tr>
 <tr>
 <td>&#x6C34;&#x5E73;&#x96C6;</td>
-<td></td>
+<td>&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x4F1A;&#x989D;&#x5916;&#x5199;&#x535A;&#x5BA2;&#x89E3;&#x91CA;</td>
 </tr>
 </tbody></table>
 <p>&#x533A;&#x57DF;&#x751F;&#x957F;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
