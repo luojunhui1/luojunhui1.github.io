@@ -397,25 +397,26 @@
 <div class="comments">
     <h3 class="title is-4">评论</h3>
     
-<div id="valine-thread"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script>
-    new Valine({
-        el: '#valine-thread',
-        appId: '9q149gbUxyvBrLkvSglgtnS3-gzGzoHsz',
-        appKey: 'w05H4dRopMCVPa2DXkvbbjNN',
-        notify: false,
-        verify: false,
-        avatar: '',
-        placeholder: 'Say something...',
-        meta: ['nick', 'mail'],
-        lang: '',
-        visitor: true, 
-    })
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/ImagePreprocessing/';
+        this.page.identifier = 'ImagePreprocessing/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'junhui luo' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
 
-
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
 </div>
 
     </div>

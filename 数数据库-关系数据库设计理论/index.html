@@ -270,7 +270,9 @@
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/%E4%BA%92%E8%81%94%E7%BD%91%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">互联网搜索引擎</a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
@@ -295,25 +297,26 @@
 <div class="comments">
     <h3 class="title is-4">评论</h3>
     
-<div id="valine-thread"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 <script>
-    new Valine({
-        el: '#valine-thread',
-        appId: '9q149gbUxyvBrLkvSglgtnS3-gzGzoHsz',
-        appKey: 'w05H4dRopMCVPa2DXkvbbjNN',
-        notify: false,
-        verify: false,
-        avatar: '',
-        placeholder: 'Say something...',
-        meta: ['nick', 'mail'],
-        lang: '',
-        visitor: true, 
-    })
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/%E6%95%B0%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA/';
+        this.page.identifier = '数数据库-关系数据库设计理论/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'junhui luo' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
 
-
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
 </div>
 
     </div>
