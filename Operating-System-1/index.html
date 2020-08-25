@@ -28,8 +28,12 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200824154909.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200825020832.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200825030123.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826030545.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826031417.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826032402.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826033033.png">
 <meta property="article:published_time" content="2020-08-24T03:36:01.000Z">
-<meta property="article:modified_time" content="2020-08-25T11:13:51.422Z">
+<meta property="article:modified_time" content="2020-08-25T19:31:47.123Z">
 <meta property="article:author" content="Junhui Luo">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="操作系统">
@@ -135,6 +139,12 @@
                     
                     <a class="navbar-item" href="#">2&nbsp;&nbsp;<b>Evolution of OS</b></a>
                     
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#">3&nbsp;&nbsp;<b>Operating System Structure</b></a>
+                    
                 </div>
             </div>
             
@@ -172,7 +182,7 @@
         <span class="column is-narrow">
             
             
-            4 分钟 读完 (约 627 字)
+            6 分钟 读完 (约 891 字)
         </span>
         
     </div>
@@ -296,28 +306,97 @@
 </li>
 <li><p><strong>Real-Time Systems</strong></p>
 <ul>
-<li><p>Correctness of the system depends not only on the logical result of the<br>computation but also on the time at which the results are produced</p>
-<ol>
+<li>Correctness of the system depends not only on the logical result of the<ul>
+<li>computation but also on the time at which the results are produced</li>
 <li>control of laboratory experiments</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>process control in industrial plants<ol start="3">
+<li>process control in industrial plants</li>
 <li>robotics</li>
-</ol>
-</li>
-<li>air traffic control<ol start="5">
+<li>air traffic control</li>
 <li>telecommunications</li>
-</ol>
-</li>
 <li>military command and control systems</li>
-</ol>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Tasks or processes attempt to control or react to events that take place in the outside world</p>
+</li>
+<li><p>These events occur in &#x201C;real time&#x201D; and tasks must be able to keep up with them</p>
+</li>
+</ul>
+<h3><span id="operating-system-structure">Operating System Structure</span></h3><ul>
+<li><p><strong>Simple Structure</strong></p>
+<p>Monolithic system &#xFF08;&#x5355;&#x7247;&#x7CFB;&#x7EDF;)<br>MS DOS written to provide the most functionality in the least space</p>
 <ul>
-<li>Tasks or processes attempt to control or react to events that take place in the outside world</li>
-<li>These events occur in &#x201C;real time&#x201D; and tasks must be able to keep up with them</li>
+<li>Not divided into modules</li>
+<li>Although MS DOS has some structure, its interfaces and levels of functionality are not well separated</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826030545.png" alt="Simple Structure" style="zoom:50%;">
+</li>
+<li><p><strong>Multi-Layer(Unix)</strong></p>
+<p>UNIX limited by hardware functionality, the original UNIX operating system had limited structuring. The UNIX OS consists of two separable parts:</p>
+</li>
+</ul>
+<ol>
+<li><p>Systems programs ( &#x7CFB;&#x7EDF;&#x7A0B;&#x5E8F;)</p>
+</li>
+<li><p>The kernel &#xFF08;&#x5185;&#x6838;)</p>
+</li>
+</ol>
+<p><strong>Kernel:</strong></p>
+<ul>
+<li><p>Consists of everything below the system call interface and above the physical hardware</p>
+</li>
+<li><p>Provides the file system, CPU scheduling, memory management, and other operating system functions; a large number of functions for one level</p>
+</li>
+<li><p>The critical code of the kernel is usually loaded into a protected area of memory , which<br>prevents it from being overwritten by other, less frequently used parts of the OS or by<br>applications.</p>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826031417.jpg" alt="Multi-Layer(Unix)" style="zoom:50%;">
+
+</li>
+</ul>
+<ul>
+<li><p><strong>Micro-kernel System Structure</strong></p>
+<p>Microkernel moves as much from the kernel into user space</p>
+<ul>
+<li><p>address spaces</p>
+</li>
+<li><p>interprocess communication (IPC)</p>
+</li>
+<li><p>basic scheduling</p>
+</li>
+</ul>
+<p><strong>Benefits:</strong></p>
+<ol>
+<li><p>Easier to extend a microkernel</p>
+</li>
+<li><p>Easier to port the operating system to new architectures</p>
+</li>
+<li><p>More reliable (less code is running in kernel mode)</p>
+</li>
+<li><p>More secure</p>
+</li>
+</ol>
+<p><strong>Detriments:</strong></p>
+<ul>
+<li>Performance overhead(&#x6027;&#x80FD;&#x5F00;&#x9500;)of user space to kernel space communication</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826032402.png" alt="Microkernel System Structure" style="zoom:50%;">
+</li>
+<li><p><strong>Modules</strong></p>
+<p>Most modern operating systems implement loadable kernel modules</p>
+<ul>
+<li><p>Uses object oriented approach</p>
+</li>
+<li><p>Each core component is separate</p>
+</li>
+<li><p>Each talks to the others over known interfaces</p>
+</li>
+<li><p>Each is loadable as needed within the kernel</p>
+</li>
+</ul>
+<p>Overall, similar to layers but with more flexible</p>
+<p>Linux, Solaris, etc</p>
+<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826033033.png" alt="Modular architecture"></p>
+</li>
 </ul>
 </body></html>
     
