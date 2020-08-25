@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Operating System 1 - 饮冰室</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="Operating System ObjectivesOS is a program that controls the execution of application programs, a interface between hardware and applications. Main objectives of an OS are as follows:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operating System 1">
+<meta property="og:url" content="http://yoursite.com/Operating-System-1/index.html">
+<meta property="og:site_name" content="饮冰室">
+<meta property="og:description" content="Operating System ObjectivesOS is a program that controls the execution of application programs, a interface between hardware and applications. Main objectives of an OS are as follows:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200824142340.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200824150320.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200824154909.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200825020832.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200825030123.png">
+<meta property="article:published_time" content="2020-08-24T03:36:01.000Z">
+<meta property="article:modified_time" content="2020-08-25T11:13:51.422Z">
+<meta property="article:author" content="Junhui Luo">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200824142340.png">
+
+
+
+
+
+<link rel="icon" href="/images/logo.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/categories/Vision/">视觉</a>
+            
+            <a class="navbar-item "
+               href="/categories/CPlus/">C++</a>
+            
+            <a class="navbar-item "
+               href="/categories/Algorithm/">算法</a>
+            
+            <a class="navbar-item "
+               href="/categories/Study/">学习</a>
+            
+            <a class="navbar-item "
+               href="/about/">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1&nbsp;&nbsp;<b>Operating System Objectives</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#">2&nbsp;&nbsp;<b>Evolution of OS</b></a>
+                    
+                </div>
+            </div>
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/luojunhui1" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Operating System 1
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2020-08-24T03:36:01.000Z" itemprop="datePublished">8月 24 2020</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Study/">Study</a><span>></span><a class="article-category-link" href="/categories/Study/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 627 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><h3><span id="operating-system-objectives">Operating System Objectives</span></h3><p>OS is a program that controls the execution of application programs, a interface between hardware and applications. Main objectives of an OS are as follows:</p>
+<a id="more"></a>
+
+<ul>
+<li>Convenience</li>
+<li>Efficiency</li>
+<li>Ability to evolve</li>
+</ul>
+<p>The components of modern computer are as follows :</p>
+<ul>
+<li>hardware</li>
+<li>software(kernel mode and user mode)</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200824142340.png" style="zoom:50%;">
+
+<p><strong>As an interface</strong> OS masks the details of hardware from programmer and provides the programmer with a convenience interface for using the system. It acts as a mediator,the  OS typically provides services in the following areas:</p>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200824150320.png" style="zoom:50%;">
+
+<ul>
+<li><p><strong>Program development</strong></p>
+<p>OS provides a variety of facilities and services, such as editors and debuggers, to assist programmers in creating programs.</p>
+</li>
+<li><p><strong>Access to I/O devices</strong></p>
+</li>
+<li><p><strong>Controlled access to files</strong></p>
+</li>
+<li><p><strong>System access</strong></p>
+</li>
+<li><p><strong>Error detection and response</strong></p>
+</li>
+<li><p><strong>Accounting</strong></p>
+<p>A good OS will collect usage statistics for various resources and monitor performance parameters such as response time.</p>
+</li>
+<li><p><strong>Instruction set architecture(ISA)</strong></p>
+<p>The boundary between hardware and software. Note that application programs may access ISA directly, for which a subset(user ISA) is available. </p>
+</li>
+<li><p><strong>Application binary interface(ABI)</strong></p>
+</li>
+<li><p><strong>Application programing interface(API)</strong></p>
+</li>
+</ul>
+<p><strong>As a resource manager</strong> OS controls the computer&#x2019;s basic functions, OS functions works as same as other ordinary computer software, that is, it is a program or suit of programs executed by processor, and OS need to frequently relinquishes control and must depend on the processor to allow it to regain control. </p>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200824154909.jpg" style="zoom:50%;">
+
+<p>The major reasons for the evolution of OS :</p>
+<ul>
+<li>Hardware upgrades and new types of hardware</li>
+<li>New services</li>
+<li>Fixes</li>
+</ul>
+<p>5 major functions of OS&#xFF1B;</p>
+<table>
+<thead>
+<tr>
+<th>function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>processor management</td>
+</tr>
+<tr>
+<td>memory management</td>
+</tr>
+<tr>
+<td>device management</td>
+</tr>
+<tr>
+<td>job management</td>
+</tr>
+<tr>
+<td>file management</td>
+</tr>
+</tbody></table>
+<h3><span id="evolution-of-os">Evolution of OS</span></h3><ul>
+<li><p><strong>Serial Processing</strong></p>
+<ul>
+<li>No operating system</li>
+<li>Machines run from a console with display lights and toggle switches, input device, and printer.</li>
+<li>Two main problems</li>
+</ul>
+<p><strong>Scheduling</strong> : waste processing<br>  <strong>Setup time</strong> : Setup included loading the compiler, source program, saving compiled program,<br>  and loading and linking</p>
+</li>
+<li><p><strong>Simple Batch Systems</strong></p>
+<p>Monitors &#xFF08;&#x76D1;&#x7763;&#x7A0B;&#x5E8F; &#xFF09;:Software that controls the running programs<br>Resident monitor is in main memory and available for execution</p>
+<p>from the perspective of monitor program to understand features of simple batch systems work: </p>
+<ol>
+<li><p>Monitor batches jobs together</p>
+</li>
+<li><p>Monitor reads in job and gives control</p>
+</li>
+<li><p>Job returns control to monitor</p>
+</li>
+</ol>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200825020832.png" alt="memory layout for a resident monitor" style="zoom:50%;">
+
+<p>For batch operating system, some processor time is consumed by monitor, and some main memory is given over to the monitor.</p>
+</li>
+<li><p><strong>Multiprogrammed Batch Systems</strong></p>
+<p>Even for simple batch system, processor is often idle, for uniprogramming, Processor must wait for I/O instruction to complete before proceeding. This inefficiency is not necessary, when the main memory is enough for OS and multiple programs and hardware supports, if a job need to wait for I/O , the processor can switch to an other job, which is likely not waiting for I/O, this  approach is known as <strong>multiprogramming</strong> or <strong>multitasking</strong>.</p>
+<p><strong>Difficulties with Multiprogramming:</strong></p>
+<ul>
+<li>Improper synchronization &#xFF08;&#x540C;&#x6B65;)<br>ensure a process waiting for an I/O device receives the signal</li>
+<li>Failed mutual exclusion &#xFF08;&#x4E92;&#x65A5;)</li>
+<li>Nondeterminate program operation &#xFF08;&#x4E0D;&#x786E;&#x5B9A;&#x6027;)<br>program should only depend on input to it</li>
+<li>Deadlocks &#xFF08;&#x6B7B;&#x9501;)</li>
+</ul>
+</li>
+<li><p><strong>Time-Sharing Systems</strong></p>
+<ul>
+<li>Using multiprogramming to handle multiple interactive &#xFF08;&#x4EA4;&#x4E92; )jobs</li>
+<li>Processor&#x2019;s time is shared among multiple users</li>
+<li>Multiple users simultaneously &#xFF08;&#x540C;&#x65F6; ) access the system through terminals</li>
+</ul>
+<p>Time Sharing VS batch multiprogramming</p>
+<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200825030123.png" style="zoom:50%;">
+</li>
+<li><p><strong>Real-Time Systems</strong></p>
+<ul>
+<li><p>Correctness of the system depends not only on the logical result of the<br>computation but also on the time at which the results are produced</p>
+<ol>
+<li>control of laboratory experiments</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>process control in industrial plants<ol start="3">
+<li>robotics</li>
+</ol>
+</li>
+<li>air traffic control<ol start="5">
+<li>telecommunications</li>
+</ol>
+</li>
+<li>military command and control systems</li>
+</ol>
+<ul>
+<li>Tasks or processes attempt to control or react to events that take place in the outside world</li>
+<li>These events occur in &#x201C;real time&#x201D; and tasks must be able to keep up with them</li>
+</ul>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F/">计组-输入输出系统</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://www.youngvoice.online' async='async'></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/Operating-System-1/';
+        this.page.identifier = 'Operating-System-1/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'https-www-youngvoice-online-1' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 Junhui Luo&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="西南交通大学官网" href="http://jwc.swjtu.edu.cn/index.html" target="_blank" rel="noopener">
+                    
+                    西南交通大学官网
+                    
+                </a>
+                
+                    
+                <a class="column is-narrow has-text-black" title="Taunt" href="http://taunt.com.cn/" target="_blank" rel="noopener">
+                    
+                    Taunt
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>
