@@ -148,103 +148,16 @@
         <span class="column is-narrow">
             
             
-            6 分钟 读完 (约 968 字)
+            6 分钟 读完 (约 969 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><h3><span id="processes">Processes</span></h3><p>The approach taken by modern operating systems is rely on a model which the execution of an application corresponds to the existence of one or more <strong>processes</strong>. We can think of a process as an entity that consist of a number of elements. Two basic elements of a process are program code and a set of data associated with that code. At any given point in time, <em>while the program is executing</em>, this process can be uniquely characterized by a number of elements, including the following:</p>
-<ul>
-<li>Identifier</li>
-<li>State</li>
-<li>Priority</li>
-<li>Program Counter</li>
-<li>Memory Pointers: Include pointers to the program code and data</li>
-<li>Context data</li>
-<li>I/O Status Information</li>
-<li>Accounting Information</li>
-</ul>
-<p>The information in the preceding list is stored in a data structure named <strong>process control block</strong>, which has these characteristics:</p>
-<ul>
-<li>It is possible to interrupt a running process and later resume execution as if the interruption had not<br>occurred</li>
-<li>Created and managed by the operating system</li>
-<li>Key tool that allows support for multiple process</li>
-</ul>
-<h4><span id="process-states">Process States</span></h4><p>We can characterize the behavior of a processor by listing the sequence of instructions that execute for that process,  such a listing is referred as a <strong>trace</strong>.</p>
-<h5><span id="a-two-state-process-model">A Two-State Process Model</span></h5><p>A process may be in one of two states:</p>
-<ul>
-<li>running</li>
-<li>not-running</li>
-</ul>
-<p>When OS creates a new process, it creates a process control block for the process and enters that process into the system in the Not Running state. The OS knows the existence of the process, and waiting for a chance to execute. From time to time, the running process will be interrupted and the dispatcher will select a new process to execute, the former process will moves from the running-state to the not-running state, the latter process  moves to the running state. </p>
-<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826184928.png" alt="Two-State Process Model" style="zoom:50%;">
-
-<p>Before refining the two state process model, it will be useful to discuss to creation and termination of processes.</p>
-<ul>
-<li><p>Process Creation</p>
-<p>the picture below shows the reasons for process creation:</p>
-<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826190233.png" alt="reasons for process creation" style="zoom:50%;">
-</li>
-<li><p>Process termination</p>
-<p>For any computer system, there must be a means for a process to indicate its completion, batch job should include a HALT instruction or an explicit OS service call for termination, and for an interactive application, the action of the user will indicate when the process is completed, such as logging off or quitting an application.</p>
-<p>The reasons for process termination are listed as following:</p>
-<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826193456.jpg" alt="reasons for process termination" style="zoom:100%;">
-
-</li>
-</ul>
-<h5><span id="a-five-state-process-model">A Five-State Process Model</span></h5><p>To descript process better,  it is useful to split Not Running state into two states:</p>
-<ul>
-<li>Ready: a process that is prepared to execute when given the opportunity</li>
-<li>Blocked/Waiting: a process that cannot execute until some event occurs, such as the completion of I/O operation.</li>
-</ul>
-<p>and there are two additional states that has been proven useful:</p>
-<ul>
-<li>New: a process that has just been created and not been admitted to the pool of executable processes by the OS</li>
-<li>Exit:  a process that has been released  from the pool  of executable processes by the OS</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826203622.jpg" alt="Five states process model"></p>
-<p>The possible transitions among these five states are as follows:</p>
-<ul>
-<li>Null:arrow_right:New:</li>
-<li>New:arrow_right:Ready</li>
-<li>Ready:arrow_right:Running</li>
-<li>Running:arrow_right:Exit</li>
-<li>Running:arrow_right:Ready: the most common reason for this transition is that the process has reached the maximum allowable time for uninterrupted of time discipline</li>
-<li>Running:arrow_right:Blocked</li>
-<li>Blocked:arrow_right:Ready</li>
-<li>Ready:arrow_right:Exit: a parent may terminate a child process at any time</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826205408.png" alt="Queueing Models"></p>
-<p>However, because the I/O is much slower than processor,  there is still a possibility that all the processes in main memory  may waiting for the completion of I/O operation at the same time even for multi-programed system,  expanding the size of main memory cannot solve this problem, because the larger size of main memory will lead to larger size of processes but not more processes, the other solution is swapping, when none of the processes in main memory is in the Ready State, OS swap one of the blocked processes out on to disk into a <strong>suspend</strong> queue, this queue is out of main memory.</p>
-<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826213701.jpg" style="zoom:50%;">
-
-<p>Normally, the OS would prefer to suspend a blocked process rather than a ready process, however, it may be necessary to suspend a Ready process if that there is a only way to free up a sufficiently large block of main memory, also, the OS may suspend a lower priority ready process rather than a higher priority blocked process. </p>
-<p>Also, when there is a blocked/suspend process with a higher priority than any process in Ready state, and the OS believe that the blocking event for that process will occur soon, it would seem reasonable to bring a blocked process into main memory.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826214929.jpg" alt="Reasons for process suspension"></p>
-<h5><span id="process-description">Process Description</span></h5><p>If the OS is to manage processes and resources , it must have information about the current status of each process and resource, the OS constructs and maintains tables of information about each entity that is managing.</p>
-<img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826222845.png" alt="OS control tables" style="zoom:50%;">
-
-<p>To manage and control a process the OS must know:</p>
-<ul>
-<li>where the process is located</li>
-<li>the attributes of the process that are necessary for its management</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826223058.png" alt="typical elements of a process image"></p>
-<p>Typically, the collection of attributes is referred to as a <strong>process control block(PCB)</strong>, which is the most important data structure in OS:</p>
-<ul>
-<li>contains all of the information about a process that is needed by the OS</li>
-<li>blocks are read and/or modified by every module in the OS</li>
-<li>defines the state of the OS</li>
-</ul>
-<p><strong>Process Attributes:</strong></p>
-<ul>
-<li>Process identification</li>
-<li>Processor state information</li>
-<li>Process control information</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200826223805.png" alt="Elements in PCB"></p>
-</body></html>
+        <html><head></head><body><h3 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h3><p>The approach taken by modern operating systems is rely on a model which the execution of an application corresponds to the existence of one or more <strong>processes</strong>. We can think of a process as an entity that consist of a number of elements. Two basic elements of a process are program code and a set of data associated with that code. At any given point in time, <em>while the program is executing</em>, this process can be uniquely characterized by a number of elements, including the following:</p></body></html>
+        <p class="article-more-link">
+            <a href="/Operating-System-2/#more">阅读更多</a>
+        </p>
     
     </div>
     
