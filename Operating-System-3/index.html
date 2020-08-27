@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>分类: 操作系统 - 饮冰室</title>
+<title>Operating System 3 - 饮冰室</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -16,13 +16,23 @@
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="饮冰室">
-<meta property="og:url" content="http://yoursite.com/categories/Study/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+    <meta name="description" content="ThreadsThe discussion so far has presented the concept of a process as embodying two characteristics:  Resource Ownership Scheduling&#x2F;Executing: process is a entity that can be scheduled and dispatched">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operating System 3">
+<meta property="og:url" content="http://yoursite.com/Operating-System-3/index.html">
 <meta property="og:site_name" content="饮冰室">
+<meta property="og:description" content="ThreadsThe discussion so far has presented the concept of a process as embodying two characteristics:  Resource Ownership Scheduling&#x2F;Executing: process is a entity that can be scheduled and dispatched">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200827172020.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200827181210.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200827234309.png">
+<meta property="article:published_time" content="2020-08-27T04:10:49.000Z">
+<meta property="article:modified_time" content="2020-08-27T15:45:29.173Z">
 <meta property="article:author" content="Junhui Luo">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200827172020.jpg">
 
 
 
@@ -106,6 +116,44 @@
             </a>
             
             
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1&nbsp;&nbsp;<b>Threads</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1.1&nbsp;&nbsp;Multithreading</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1.2&nbsp;&nbsp;Benefits of Threads</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1.3&nbsp;&nbsp;Thread Execution States</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1.4&nbsp;&nbsp;Thread Execution</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1.5&nbsp;&nbsp;Thread Classification</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1.6&nbsp;&nbsp;Multicore</a>
+                    
+                </div>
+            </div>
+            
             
             <a class="navbar-item" title="GitHub" href="https://github.com/luojunhui1" target="_blank" rel="noopener">
                 
@@ -118,20 +166,12 @@
     </div>
 </nav>
 
-    <section class="section section-heading">
+    <section class="section">
     <div class="container">
-        <div class="content">
-            <h5><i class="far fa-folder"></i>操作系统</h5>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
+    <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/Operating-System-3/" itemprop="url">Operating System 3</a>
+            Operating System 3
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -154,106 +194,165 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><p>The discussion so far has presented the concept of a process as embodying two characteristics:</p>
+        <html><head></head><body><h3><span id="threads">Threads</span></h3><p>The discussion so far has presented the concept of a process as embodying two characteristics:</p>
 <ul>
 <li>Resource Ownership</li>
 <li>Scheduling/Executing: process is a entity that can be scheduled and dispatched by OS</li>
 </ul>
-<p>These  two characteristics are independent and could be treated independently by OS, the unity of dispatching is usually   referred to as a <strong>thread</strong> or <strong>lightweight process</strong>, while the unit of resource ownership is usually referred to as a <strong>process</strong> or <strong>task</strong>.</p></body></html>
-        <p class="article-more-link">
-            <a href="/Operating-System-3/#more">阅读更多</a>
-        </p>
+<p>These  two characteristics are independent and could be treated independently by OS, the unity of dispatching is usually   referred to as a <strong>thread</strong> or <strong>lightweight process</strong>, while the unit of resource ownership is usually referred to as a <strong>process</strong> or <strong>task</strong>.</p>
+<a id="more"></a>
+
+<h4><span id="multithreading">Multithreading</span></h4><p>multithreading refers to the ability of an OS to support multiple, concurrent paths of execution within a single process.</p>
+<p>In a multithreading environment, a process is defined as the unit of resource allocation and a unit of protection. The following are associated with processes:</p>
+<ul>
+<li>a virtual address space to hold the process image</li>
+<li>Protected access to processors, other processes, files and I/O resources</li>
+</ul>
+<p>Within a process, there may be one or more threads, each with the following:</p>
+<ul>
+<li>an execution state (Running, Ready, etc.)</li>
+<li>saved thread context when not running</li>
+<li>an execution stack</li>
+<li>some per thread static storage for local variables</li>
+<li>access to the memory and resources of its process (all threads of a process share this)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200827172020.jpg" alt></p>
+<h4><span id="benefits-of-threads">Benefits of Threads</span></h4><table>
+<thead>
+<tr>
+<th>Benefits of Threads</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Less time to create a new thread than a process</td>
+</tr>
+<tr>
+<td>Less time to terminate a thread than a process</td>
+</tr>
+<tr>
+<td>Switching between two threads takes less time than switching between processes</td>
+</tr>
+<tr>
+<td>Threads enhance efficiency in communication between programs by avoiding kernel intervention(In most OSes, the communication among threads requires the intervention of kernel)</td>
+</tr>
+</tbody></table>
+<h4><span id="thread-execution-states">Thread Execution States</span></h4><p>The key states for a thread are:</p>
+<ul>
+<li>Running</li>
+<li>Ready</li>
+<li>Blocked</li>
+</ul>
+<p>Thread operations associated with a change in thread state are:</p>
+<ul>
+<li>Spawn</li>
+<li>Block</li>
+<li>Unblock</li>
+<li>Finish</li>
+</ul>
+<h4><span id="thread-execution">Thread Execution</span></h4><p>In a OS that supports threads, scheduling and dispatching is done on a thread basis, most of the states information dealing with execution, states are maintained in a thread-level data structure, suspending a process mean suspending all the threads in this process, so with the termination.</p>
+<p>It is necessary to synchronize the activities of the various threads, because all the threads of a process share the same address space and other resources, any alteration of a resource by one thread may affect an other thread in the same process.</p>
+<h4><span id="thread-classification">Thread Classification</span></h4><table>
+<thead>
+<tr>
+<th>Two Types of threads</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User Level Thread(ULT)</td>
+</tr>
+<tr>
+<td>Kernel Level Thread(KLT)</td>
+</tr>
+</tbody></table>
+<p><strong>User Level Threads(ULTs)</strong></p>
+<p>All thread management is done by the application, the kernel is not aware of the existence of threads. Thread Library provides programmer with API for creating and managing threads.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200827181210.png" alt></p>
+<p><strong>Advantages of ULTs</strong></p>
+<ul>
+<li>Thread switching does not require kernel mode privileges</li>
+<li>Scheduling can be application specific</li>
+<li>ULTs can run on any OS</li>
+</ul>
+<p><strong>Disadvantages of ULTs</strong></p>
+<ul>
+<li>when a ULT executes a system call, not only is that thread blocked, but all of the threads within the process are blocked</li>
+<li>In a pure ULT strategy, a multithreaded application cannot take advantage of multiprocessing</li>
+</ul>
+<p><strong>Kernel Level Threads (KLTs)</strong></p>
+<p>Thread management is done by the kernel, no thread management is done by the application.</p>
+<p><strong>Advantages of KLTs</strong></p>
+<ul>
+<li>The kernel can simultaneously schedule multiple threads from the same process on multiple processors</li>
+<li>If one thread in a process is blocked, the kernel can schedule another thread of the same process</li>
+<li>Kernel routines(&#x5185;&#x6838;&#x4F8B;&#x7A0B;) can be multithreaded</li>
+</ul>
+<p><strong>Disadvantage of KLTs</strong></p>
+<p>The transfer of control from one thread to another within the same process requires a mode switch to the kernel</p>
+<p><strong>Combined Approaches</strong></p>
+<p>Thread creation is done in the user space, Bulk of scheduling and synchronization of threads is by the application.</p>
+<h4><span id="multicore">Multicore</span></h4><p>The potential performance benefits of a multicore organization depend on the ability to effectively exploit the parallel resources available to the applications.  Serial code may make a great influence on the performance of a multicore organization, and the communication and distribution of work to multiple processors and cache coherence  also heavier the burden of  processors, which results in a curve where performance peak and then begins to degrade.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/luojunhui1/BlogPicture/Windows/20200827234309.png" alt></p>
+</body></html>
     
     </div>
     
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/Operating-System-2/">Operating System 2</a>
+            
+        </span>
+    </div>
     
 </article>
 
 
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type='text/javascript' src='https://www.youngvoice.online' async='async'></script>
 
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/Operating-System-2/" itemprop="url">Operating System 2</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2020-08-26T08:55:20.000Z" itemprop="datePublished">8月 26 2020</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Study/">Study</a><span>></span><a class="article-category-link" href="/categories/Study/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            6 分钟 读完 (约 969 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h3 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h3><p>The approach taken by modern operating systems is rely on a model which the execution of an application corresponds to the existence of one or more <strong>processes</strong>. We can think of a process as an entity that consist of a number of elements. Two basic elements of a process are program code and a set of data associated with that code. At any given point in time, <em>while the program is executing</em>, this process can be uniquely characterized by a number of elements, including the following:</p></body></html>
-        <p class="article-more-link">
-            <a href="/Operating-System-2/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
+</div>
 
 
 
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/Operating-System-3/';
+        this.page.identifier = 'Operating-System-3/';
+        
+        this.language = 'zh';
+        
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'https-www-youngvoice-online-1' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
 
+<div id="disqus_thread">
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/Operating-System-1/" itemprop="url">Operating System 1</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2020-08-24T03:36:01.000Z" itemprop="datePublished">8月 24 2020</time>
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/Study/">Study</a><span>></span><a class="article-category-link" href="/categories/Study/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            6 分钟 读完 (约 891 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h3 id="Operating-System-Objectives"><a href="#Operating-System-Objectives" class="headerlink" title="Operating System Objectives"></a>Operating System Objectives</h3><p>OS is a program that controls the execution of application programs, a interface between hardware and applications. Main objectives of an OS are as follows:</p></body></html>
-        <p class="article-more-link">
-            <a href="/Operating-System-1/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
+</div>
 
-
-
-
-    
-    
     </div>
 </section>
     <footer class="footer">
